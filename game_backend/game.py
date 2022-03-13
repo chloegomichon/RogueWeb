@@ -13,7 +13,7 @@ class Game:
         self._player = Player()
         self._player.initPos( self._map )
 
-        for i in range(2):
+        for i in range(10):
             c = Coin()
             c.initPos(self._map)
 
