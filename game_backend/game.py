@@ -1,5 +1,6 @@
 from .map_generator import Generator
 from .player import Player
+from .coin import Coin
 
 
 class Game:
@@ -11,6 +12,12 @@ class Game:
 
         self._player = Player()
         self._player.initPos( self._map )
+
+        for i in range(2):
+            c = Coin()
+            c.initPos(self._map)
+
+
 
     def getMap(self):
         return self._map
