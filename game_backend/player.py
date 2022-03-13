@@ -5,6 +5,7 @@ class Player:
         self._symbol = symbol
         self._x = None
         self._y = None
+        self.money = 0
 
     def initPos(self, _map):
         n_row = len(_map)
@@ -29,6 +30,7 @@ class Player:
         new_x = self._x + dx
         new_y = self._y + dy
 
+
         if map[new_y][new_x] == "." or map[new_y][new_x] == "x" :
             ret =True
             map[new_y][new_x] = self._symbol
@@ -36,7 +38,20 @@ class Player:
             data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol}]
             self._x = new_x
             self._y = new_y
+        
+        elif map[new_y][new_x] == 'O' :
+            self.money += 1
+            ret =True
+            map[new_y][new_x] = self._symbol
+            map[self._y][self._x] = "x"
+            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol}]
+            self._x = new_x
+            self._y = new_y
+        
+        
         else:
             ret = False
             data = []
         return data, ret
+
+        

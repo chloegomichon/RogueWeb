@@ -2,9 +2,10 @@
 import random
 from symtable import Symbol
 
+enemies = ['Z', 'H', 'W']
 
-class Coin:
-    def __init__(self, symbol='O'):
+class Enemy:
+    def __init__(self, symbol):
         self.symbol = symbol
         self.x = None
         self.y = None
