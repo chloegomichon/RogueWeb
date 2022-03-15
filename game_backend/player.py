@@ -6,6 +6,7 @@ class Player:
         self._x = None
         self._y = None
         self.money = 0
+        self.life = 10 #points de vie
 
     def initPos(self, _map):
         n_row = len(_map)
@@ -47,7 +48,24 @@ class Player:
             data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol}]
             self._x = new_x
             self._y = new_y
-        
+
+        elif map[new_y][new_x] == 'Z' : #méchant qui inflige dommages directs
+            self.life -= 1
+            ret =True
+            map[new_y][new_x] = self._symbol
+            map[self._y][self._x] = "x"
+            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol}]
+            self._x = new_x
+            self._y = new_y
+
+        elif map[new_y][new_x] == 'W' : #méchant qui vole des pièces
+            self.money -= 1
+            ret =True
+            map[new_y][new_x] = self._symbol
+            map[self._y][self._x] = "x"
+            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol}]
+            self._x = new_x
+            self._y = new_y
         
         else:
             ret = False
