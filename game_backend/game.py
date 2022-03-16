@@ -30,3 +30,6 @@ class Game:
 
     def move(self, dx, dy):
         return self._player.move(dx, dy, self._map)
+
+    def getPlayer(self):
+        return self._player

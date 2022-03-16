@@ -56,4 +56,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
     });
 
+    pdv_.innerHTML = game.getPlayer().life;
+    pieces_.innerHTML = game.getPlayer().money;
+
 });

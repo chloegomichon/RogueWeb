@@ -1,4 +1,5 @@
 
+import random
 
 class Player:
     def __init__(self, symbol="@"):
@@ -9,7 +10,7 @@ class Player:
         self.life = 10 #points de vie
 
     def initPos(self, _map):
-        n_row = len(_map)
+        n_row = len(_map) 
         #n_col = len(_map[0])
 
         y_init = n_row//2
@@ -49,8 +50,10 @@ class Player:
             self._x = new_x
             self._y = new_y
 
-        elif map[new_y][new_x] == 'Z' : #méchant qui inflige dommages directs
-            self.life -= 1
+        elif map[new_y][new_x] == 'Z' : #méchant qui inflige dommages directs, avec une certaine probabilité
+            prob = random.randint(0,2)
+            if prob == 0:
+                self.life -= 1
             ret =True
             map[new_y][new_x] = self._symbol
             map[self._y][self._x] = "x"
