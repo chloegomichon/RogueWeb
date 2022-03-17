@@ -75,4 +75,8 @@ class Player:
             data = []
         return data, ret
 
-        
+    def getMoney(self):
+        return(self.money)
+
+    def getLife(self):
+        return(self.life)

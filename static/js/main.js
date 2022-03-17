@@ -55,8 +55,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
             span_to_modif.textContent = data[i].content;
         }
     });
-
-    pdv_.innerHTML = game.getPlayer().life;
-    pieces_.innerHTML = game.getPlayer().money;
+    
+    
+    // pdv_.innerHTML = 5;
+    pieces_.innerHTML = game.getPlayer().getMoney();
 
 });
