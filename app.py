@@ -17,12 +17,12 @@ def on_move_msg(json, methods=["GET", "POST"]):
     print("received move ws message")
     dx = json['dx']
     dy = json["dy"]
-    game_player = game.getPlayer()
-    print(game_player.money)
+    
     data, ret = game.move(dx,dy)
     if ret:
         socketio.emit("response", data)  
     
+    #return render_template("main.js", playerdata = game_player_m)
 
 if __name__=="__main__":
     socketio.run(app, port=5001)

@@ -48,16 +48,21 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 
     socket.on("response", function(data){
-        console.log(data);
+        //console.log(data);
         for( var i=0; i<2; i++){
             var cell_id = "cell " + data[i].i + "-" + data[i].j;
             var span_to_modif = document.getElementById(cell_id);
             span_to_modif.textContent = data[i].content;
         }
+        if (data !== []){
+            let money_tag = document.getElementById("money")
+            let life_tag = document.getElementById("life")
+            money_tag.textContent = `Nombre de pièces : ${data[2]}`
+            life_tag.textContent = `Points de vie : ${data[3]}`}
+        
     });
     
     
-    // pdv_.innerHTML = 5;
-    pieces_.innerHTML = game.getPlayer().getMoney();
+    let money = player_data_m.money
 
 });
