@@ -57,8 +57,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
         if (data !== []){
             let money_tag = document.getElementById("money")
             let life_tag = document.getElementById("life")
+            let weapon_tag = document.getElementById("weapons")
             money_tag.textContent = `Nombre de pièces : ${data[2]}`
-            life_tag.textContent = `Points de vie : ${data[3]}`}
+            life_tag.textContent = `Points de vie : ${data[3]}`
+            weapon_tag.textContent = `Armes : ${data[4]}`
+            }
         
     });
     
