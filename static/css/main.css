@@ -1,12 +1,6 @@
 body{
     background-color: grey;}
-
-.flexbox{
-display: flex;
-flex-direction: row;
-align-items: center;
-}
-            
+      
             
 .thekeypad{
     display: grid;
@@ -15,6 +9,7 @@ align-items: center;
     grid-gap: 5px;
     max-width:120px;
     float:right;
+    height: 85%;
 }
 
 .keypad_btn{
@@ -23,8 +18,8 @@ align-items: center;
     color: cyan;
 }
 
-.console{float: left;}
+.console{float: left; height:85%}
 
-.points{background-color: blueviolet;}
+.points{background-color: blueviolet; float:right; height:85%}
 
-
+#game{height:15%; justify-content: center; font-family:fantasy;}
