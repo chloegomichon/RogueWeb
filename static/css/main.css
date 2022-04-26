@@ -1,19 +1,23 @@
 body{
-    background-color: slategray;
-}
+    background-color: grey;
+grid-template: "header header header"
+               "left left righttop" 
+               "left left rightbottom";}
+
 
 .flexbox{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-
+            
 .thekeypad{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 35px;
     grid-gap: 5px;
     max-width:120px;
+    grid-area: "righttop";
 }
 
 .keypad_btn{
@@ -21,3 +25,9 @@ body{
     opacity: 0.75;
     color: cyan;
 }
+
+.console{grid-area: "left";}
+
+.points{grid-area: "rightbottom"; background-color: blueviolet;}
+
+#game{grid-area: "header"; font-size: larger; font-family: 'Franklin Gothic Medium';}
