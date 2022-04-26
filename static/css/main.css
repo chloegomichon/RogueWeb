@@ -1,15 +1,12 @@
 body{
-    background-color: grey;
-grid-template: "header header header"
-               "left left righttop" 
-               "left left rightbottom";}
-
+    background-color: grey;}
 
 .flexbox{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+display: flex;
+flex-direction: row;
+align-items: center;
 }
+            
             
 .thekeypad{
     display: grid;
@@ -17,7 +14,7 @@ grid-template: "header header header"
     grid-auto-rows: 35px;
     grid-gap: 5px;
     max-width:120px;
-    grid-area: "righttop";
+    float:right;
 }
 
 .keypad_btn{
@@ -26,8 +23,8 @@ grid-template: "header header header"
     color: cyan;
 }
 
-.console{grid-area: "left";}
+.console{float: left;}
 
-.points{grid-area: "rightbottom"; background-color: blueviolet;}
+.points{background-color: blueviolet;}
 
-#game{grid-area: "header"; font-size: larger; font-family: 'Franklin Gothic Medium';}
+
