@@ -2,7 +2,7 @@
 import random
 
 class Player:
-    def __init__(self, symbol="@"):
+    def __init__(self, symbol="P"):
         self._symbol = symbol
         self._x = None
         self._y = None
