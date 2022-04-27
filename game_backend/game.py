@@ -17,6 +17,8 @@ class Game:
         self._player = Player()
         self._player.initPos( self._map )
 
+        self.enemies=[]
+
         for i in range(15):
             c = Coin()
             c.initPos(self._map)
@@ -25,6 +27,7 @@ class Game:
             symbol = random.choice(enemies)
             e = Enemy(symbol)
             e.initPos(self._map)
+            self.enemies.append(e)
 
         for j in range(10):
             w = Weapon()
@@ -35,6 +38,13 @@ class Game:
 
     def move(self, dx, dy):
         return self._player.move(dx, dy, self._map)
+
+    def move_enemies(self):
+        all_enemies_data = []
+        for enemy in self.enemies:
+            data = enemy.move_enemy(self._map)
+            all_enemies_data.append(data)
+        return all_enemies_data
 
     def getPlayer(self):
         return self._player

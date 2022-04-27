@@ -24,6 +24,12 @@ def on_move_msg(json, methods=["GET", "POST"]):
     
     #return render_template("main.js", playerdata = game_player_m)
 
+@socketio.on("move_enemies")
+def on_move_enemy_msg():
+    print("received move enemies message")
+    all_enemies_data = game.move_enemies()
+    socketio.emit("response_enemies", all_enemies_data)
+
 if __name__=="__main__":
     socketio.run(app, port=5001)
 

@@ -24,6 +24,6 @@ body{
 #game{height:15%; font-family:fantasy; font-size:80px; text-align: center; color:goldenrod}
 
 .O{background-color:gold;}
-.M{background-color: brown;}
-.P{background-color: deeppink;}
+.M{background-color: brown; color:brown}
+
 
