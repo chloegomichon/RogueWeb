@@ -61,11 +61,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
             money_tag.textContent = `Nombre de pièces : ${data[2]}`
             life_tag.textContent = `Points de vie : ${data[3]}`
             weapon_tag.textContent = `Armes : ${data[4]}`
+
+            if(data[3] == 0){
+                document.getElementById('hideaway').style.display='block'
             }
+        }
+        
+
         
     });
     
     
-    let money = player_data_m.money
+    let money = player_data_m.money;
 
+    
 });

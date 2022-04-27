@@ -34,17 +34,23 @@ class Player:
         self.compteur = (self.compteur + 1)%3
         if self.compteur == 0 :
             self.life = self.life - 1 #perte d'un point de vie tous les trois déplacements
-        
-        new_x = self._x + dx
-        new_y = self._y + dy
 
-        if map[new_y][new_x] == "." or map[new_y][new_x] == "x" :
+        if self.life <= 0:
+            new_x = self._x
+            new_y = self._y 
+        else : 
+            new_x = self._x + dx
+            new_y = self._y + dy    
+
+
+        if map[new_y][new_x] == "." or map[new_y][new_x] == "x" or map[new_y][new_x] == "P":
             ret =True
             map[new_y][new_x] = self._symbol
             map[self._y][self._x] = "x"
             data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol},self.money,self.life,self.weapons]
             self._x = new_x
             self._y = new_y
+
         
         elif map[new_y][new_x] == 'O' :
             self.money += 1
