@@ -49,7 +49,7 @@ class Player:
             ret =True
             map[new_y][new_x] = self._symbol
             map[self._y][self._x] = "x"
-            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol},self.money,self.life,self.weapons]
+            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol, "money": False},self.money,self.life,self.weapons]
             self._x = new_x
             self._y = new_y
 
@@ -59,7 +59,7 @@ class Player:
             ret =True
             map[new_y][new_x] = self._symbol
             map[self._y][self._x] = "x"
-            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol},self.money,self.life,self.weapons]
+            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol, "money":True},self.money,self.life,self.weapons]
             self._x = new_x
             self._y = new_y
 
@@ -68,7 +68,7 @@ class Player:
             self.weapons = self.weapons + 1 
             map[new_y][new_x] = self._symbol
             map[self._y][self._x] = "x"
-            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol},self.money,self.life, self.weapons]
+            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol, "money": False},self.money,self.life, self.weapons]
             self._x = new_x
             self._y = new_y
 
@@ -79,7 +79,7 @@ class Player:
             ret =True
             map[new_y][new_x] = self._symbol
             map[self._y][self._x] = "x"
-            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol},self.money,self.life,self.weapons]
+            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol, "money": False},self.money,self.life,self.weapons]
             self._x = new_x
             self._y = new_y
 
@@ -88,7 +88,7 @@ class Player:
             ret =True
             map[new_y][new_x] = self._symbol
             map[self._y][self._x] = "x"
-            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol}, self.money, self.life,self.weapons]
+            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol, "money": False}, self.money, self.life,self.weapons]
             self._x = new_x
             self._y = new_y
 
@@ -98,7 +98,7 @@ class Player:
                 self.life -= 1
                 map[new_y][new_x] = self._symbol
                 map[self._y][self._x] = "x"
-                data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol}, self.money, self.life,self.weapons]
+                data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol, "money": False}, self.money, self.life,self.weapons]
                 self._x = new_x
                 self._y = new_y
                 ret =True

@@ -46,14 +46,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
         socket.emit("move", {dx:1, dy:0});
     };
 
-
     socket.on("response", function(data){
         //console.log(data);
         for( var i=0; i<2; i++){
             var cell_id = "cell " + data[i].i + "-" + data[i].j;
             var span_to_modif = document.getElementById(cell_id);
             span_to_modif.textContent = data[i].content;
-        }
+        };
+
         if (data !== []){
             let money_tag = document.getElementById("money")
             let life_tag = document.getElementById("life")
@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         for(let data of enemies_data){
             for(var i=0; i<2; i++){
                 var cell_id = "cell " + data[i].i + "-" + data[i].j;
-                var span_to_modif = document.getElementById(cell_id);
+                var span_to_modif = document.getElementById(cell_id);    
                 span_to_modif.textContent = data[i].content;
             }
         }
