@@ -3,6 +3,7 @@ from .player import Player
 from .coin import Coin
 from .enemy import Enemy
 from .weapons import Weapon
+from .treasure import Treasure
 import random
 enemies = ['Z', 'H', 'K']
 
@@ -18,6 +19,9 @@ class Game:
         self._player.initPos( self._map )
 
         self.enemies=[]
+
+        self._treasure = Treasure()
+        self._treasure.initPos( self._map )
 
         for i in range(15):
             c = Coin()

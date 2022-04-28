@@ -51,6 +51,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
         for( var i=0; i<2; i++){
             var cell_id = "cell " + data[i].i + "-" + data[i].j;
             var span_to_modif = document.getElementById(cell_id);
+            var pass_on_cash = data[i].pass_on_cash
+            if (pass_on_cash == true){
+                span_to_modif.style.backgroundColor = 'azure';
+                }
             span_to_modif.textContent = data[i].content;
         };
 
@@ -58,6 +62,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
             let money_tag = document.getElementById("money")
             let life_tag = document.getElementById("life")
             let weapon_tag = document.getElementById("weapons")
+            let treasure = data[i].treasure
+            console.log('trésor trouvé')
             money_tag.textContent = `Nombre de pièces : ${data[2]}`
             life_tag.textContent = `Points de vie : ${data[3]}`
             weapon_tag.textContent = `Armes : ${data[4]}`
@@ -65,6 +71,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
             if(data[3] == 0){
                 document.getElementById('hideaway').style.display='block'
             }
+            if(treasure==true){
+                document.getElementById('win').style.display='block'}
         }
         
 
