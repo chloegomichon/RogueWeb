@@ -71,7 +71,21 @@ window.addEventListener("DOMContentLoaded", (event) => {
         
     });
     
-    
+    socket.on("response_enemies", function(enemies_data){
+        console.log(enemies_data);
+        for(let data of enemies_data){
+            for(var i=0; i<2; i++){
+                var cell_id = "cell " + data[i].i + "-" + data[i].j;
+                var span_to_modif = document.getElementById(cell_id);
+                span_to_modif.textContent = data[i].content;
+            }
+        }
+    });
+
+    setInterval(function(){
+        socket.emit("move_enemies")
+    }, 500);
+
     let money = player_data_m.money;
 
     

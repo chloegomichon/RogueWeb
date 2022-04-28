@@ -43,7 +43,7 @@ class Enemy:
 
         contained = False
         while contained == False:
-            if _map[new_y][new_x] == "." or _map[new_y][new_x] == "x" or _map[new_y][new_x] == "P":
+            if _map[new_y][new_x] == "." or _map[new_y][new_x] == "x" :
                 contained = True
             else:
                 new_x = self._x + random.randint(-1,1)
@@ -51,21 +51,9 @@ class Enemy:
 
         _map[new_y][new_x] = self._symbol
         _map[self._y][self._x] = "."
-        data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"."}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol}]
+        data_enemy = [{"i": f"{self._y}", "j":f"{self._x}", "content":"."}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol}]
+    
         self._x = new_x
         self._y = new_y
 
-
-        #direction = (1,0)
-        #x,y = self.x, self.y 
-        #new_x =  self.x + direction[0]
-        #new_y = self.y + direction[1]
-        #map[x][y]= '.'
-        #map[new_y][new_x] = 'H'
-        #self.x = new_x
-        #self.y = new_y
-        #ret = True
-        #data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol}, self.money, self.life]
-        
-
-        return data
+        return data_enemy

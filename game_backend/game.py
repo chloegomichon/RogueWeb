@@ -44,7 +44,7 @@ class Game:
         for enemy in self.enemies:
             data = enemy.move_enemy(self._map)
             all_enemies_data.append(data)
-        return all_enemies_data
+        return all_enemies_data, True 
 
     def getPlayer(self):
         return self._player

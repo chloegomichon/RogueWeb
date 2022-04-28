@@ -31,13 +31,15 @@ class Player:
         _map[self._y][self._x] = self._symbol
 
     def move(self, dx, dy, map):
-        self.compteur = (self.compteur + 1)%3
+        self.compteur = (self.compteur + 1)%5
         if self.compteur == 0 :
             self.life = self.life - 1 #perte d'un point de vie tous les trois déplacements
-
+ 
         if self.life <= 0:
             new_x = self._x
             new_y = self._y 
+            self.life=0
+        
         else : 
             new_x = self._x + dx
             new_y = self._y + dy    
@@ -81,7 +83,7 @@ class Player:
             self._x = new_x
             self._y = new_y
 
-        elif map[new_y][new_x] == 'W' : #méchant qui vole des pièces
+        elif map[new_y][new_x] == 'K' : #méchant qui vole des pièces
             self.money -= 1
             ret =True
             map[new_y][new_x] = self._symbol
@@ -100,8 +102,8 @@ class Player:
                 self._x = new_x
                 self._y = new_y
                 ret =True
+       
             
-
         else:
             ret = False
             data = []
