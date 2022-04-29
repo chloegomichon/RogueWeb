@@ -12,7 +12,7 @@ def index():
     game_player = game.getPlayer()
     return render_template("index.html", mapdata=map, n_row=len(map),n_col=len(map[0]), playerdata = game_player)
 
-@socketio.on("move_P1")
+@socketio.on("move")
 def on_move_msg(json, methods=["GET", "POST"]):
     print("received move ws message")
     dx = json['dx']
