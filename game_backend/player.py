@@ -31,6 +31,12 @@ class Player:
 
         _map[self._y][self._x] = self._symbol
 
+    def attacked(self, map):
+        if map[self._y][self._x]=='H' or map[self._y][self._x]=='K' or map[self._y][self._x]=='Z':
+            self.life -= 1
+            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{self._y}", "j":f"{self._x}", "content":self._symbol, "pass_on_cash": False,"treasure":self.treasure},self.money,self.life, self.weapons]
+        return data
+
     def move(self, dx, dy, map):
         self.compteur = (self.compteur + 1)%5
         if self.compteur == 0 :

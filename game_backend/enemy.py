@@ -43,7 +43,7 @@ class Enemy:
 
         contained = False
         while contained == False:
-            if _map[new_y][new_x] == "." or _map[new_y][new_x] == "x" :
+            if _map[new_y][new_x] == "." or _map[new_y][new_x] == "x" or _map[new_y][new_x] == "P" :
                 contained = True
             else:
                 new_x = self._x + random.randint(-1,1)

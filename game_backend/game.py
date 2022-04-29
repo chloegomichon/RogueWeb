@@ -60,3 +60,9 @@ class Game:
 
     def getPlayer2(self):
         return self._player2
+
+    def attack1(self):
+        return self._player.attacked(self._map)
+
+    def attack2(self):
+        return self._player2.attacked(self._map)

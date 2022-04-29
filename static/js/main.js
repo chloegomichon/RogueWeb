@@ -98,6 +98,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
         socket.emit("move_enemies")
     }, 500);
 
+    setInterval(function(){
+        socket.emit("attack1")
+    }, 500);
+
+    setInterval(function(){
+        socket.emit("attack2")
+    }, 500);
+
     let money = player_data_m.money;
 
     

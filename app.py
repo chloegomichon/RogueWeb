@@ -41,6 +41,17 @@ def on_move_enemy_msg():
     all_enemies_data = game.move_enemies()
     socketio.emit("response_enemies", all_enemies_data)
 
+@socketio.on("attack1")
+def attack1_msg():
+    print("attack 1 message")
+    attack1_data = game.attack1()
+    socketio.emit("attack 1 data", attack1_data)
+
+@socketio.on("attack2")
+def attack2_msg():
+    print("attack 2 message")
+    attack1_data = game.attack1()
+    socketio.emit("attack 2 data", attack1_data)
 
 if __name__=="__main__":
     socketio.run(app, port=5001)
