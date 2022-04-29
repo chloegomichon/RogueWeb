@@ -1,5 +1,4 @@
 
-
 window.addEventListener("DOMContentLoaded", (event) => {
     var socket = io.connect("http://" + document.domain + ":" + location.port );
 
@@ -74,7 +73,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
             }
 
             if(treasure){
+                treasure == false
                 document.getElementById('win').style.display='block'
+                socket.emit("next")
+                window.location.reload(true);
             }
         }
         
