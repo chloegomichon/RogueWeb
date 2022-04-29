@@ -23,13 +23,11 @@ class Game:
         self._treasure = Treasure()
         self._treasure.initPos( self._map )
 
-        
-
         for i in range(15):
             c = Coin()
             c.initPos(self._map)
 
-        for j in range(20):
+        for j in range(10):
             symbol = random.choice(enemies)
             e = Enemy(symbol)
             e.initPos(self._map)
