@@ -11,6 +11,7 @@ class Player:
         self.compteur = 0 # va servir à perdre de la vie dans les déplacements
         self.weapons = 0
         self.treasure = False
+        self.level = 1
 
     def initPos(self, _map):
         n_row = len(_map) 
@@ -34,7 +35,7 @@ class Player:
     def move(self, dx, dy, map):
         self.compteur = (self.compteur + 1)%5
         if self.compteur == 0 :
-            self.life = self.life - 1 # perte d'un point de vie tous les trois déplacements
+            self.life = self.life - 1 # perte d'un point de vie tous les cinq déplacements
  
         if self.life <= 0 or self.treasure == True:
             # arrêt du joueur si plus de points de vie ou si trésor trouvé
@@ -111,9 +112,10 @@ class Player:
             ret =True
             map[new_y][new_x] = self._symbol
             map[self._y][self._x] = "x"
-            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol, "pass_on_cash": False,"treasure":self.treasure},self.money,self.life,self.weapons]
+            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol, "pass_on_cash": False,"treasure":self.treasure,'new_level':True},self.money,self.life,self.weapons]
             self._x = new_x
             self._y = new_y
+            self.level +=1
 
         else:
             ret = False
