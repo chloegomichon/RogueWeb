@@ -23,6 +23,17 @@ def on_move_msg(json, methods=["GET", "POST"]):
         socketio.emit("response", data)  
     
     #return render_template("main.js", playerdata = game_player_m)
+@socketio.on("move2")
+def on_move_msg(json, methods=["GET", "POST"]):
+    print("received move2 ws message")
+    dx = json['dx']
+    dy = json["dy"]
+    
+    data, ret = game.move2(dx,dy)
+    if ret:
+        socketio.emit("response", data)  
+    
+    #return render_template("main.js", playerdata = game_player_m)
 
 @socketio.on("move_enemies")
 def on_move_enemy_msg():
