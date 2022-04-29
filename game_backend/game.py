@@ -17,6 +17,8 @@ class Game:
 
         self._player = Player()
         self._player.initPos( self._map )
+        self._player2 = Player()
+        self._player2.initPos( self._map )
 
         self.enemies=[]
 
@@ -42,6 +44,9 @@ class Game:
 
     def move(self, dx, dy):
         return self._player.move(dx, dy, self._map)
+    
+    def move2(self, dx, dy):
+        return self._player2.move(dx, dy, self._map)
 
     def move_enemies(self):
         all_enemies_data = []
@@ -52,3 +57,6 @@ class Game:
 
     def getPlayer(self):
         return self._player
+
+    def getPlayer2(self):
+        return self._player2
