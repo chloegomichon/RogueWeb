@@ -41,9 +41,6 @@ def on_move_enemy_msg():
     all_enemies_data = game.move_enemies()
     socketio.emit("response_enemies", all_enemies_data)
 
-@socketio.on("next")
-def on_next_msg():
-    game.getMap.__init__()
 
 if __name__=="__main__":
     socketio.run(app, port=5001)

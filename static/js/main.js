@@ -58,30 +58,28 @@ window.addEventListener("DOMContentLoaded", (event) => {
         };
 
         if (data !== []){
-            let money_tag = document.getElementById("money")
-            let life_tag = document.getElementById("life")
-            let weapon_tag = document.getElementById("weapons")
-            let treasure = data[1].treasure
-            console.log('trésor trouvé')
+            let money_tag = document.getElementById("money");
+            let life_tag = document.getElementById("life");
+            let weapon_tag = document.getElementById("weapons");
+            let treasure = data[1].treasure;
+            console.log('trésor trouvé');
 
-            money_tag.textContent = `Nombre de pièces : ${data[2]}`
-            life_tag.textContent = `Points de vie : ${data[3]}`
-            weapon_tag.textContent = `Armes : ${data[4]}`
+            money_tag.textContent = `Nombre de pièces : ${data[2]}`;
+            life_tag.textContent = `Points de vie : ${data[3]}`;
+            weapon_tag.textContent = `Armes : ${data[4]}`;
 
             if(data[3] == 0){
                 document.getElementById('hideaway').style.display='block'
             }
 
             if(treasure){
-                treasure == false
                 document.getElementById('win').style.display='block'
-                socket.emit("next")
-                window.location.reload(true);
             }
         }
         
         
     });
+
     
 
     socket.on("response_enemies", function(enemies_data){
@@ -94,6 +92,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             }
         }
     });
+
 
     setInterval(function(){
         socket.emit("move_enemies")
