@@ -26,9 +26,9 @@ body{
 .O{background-color:gold;}
 .M{background-color: brown; color:brown}
 
-#hideaway{font-size:80px; text-align: center}
+#hideaway{font-size:80px; text-align: center; background-color: black; color:white;font-family:fantasy}
 
-#win{font-size:80px; text-align: center}
+#win{font-size:80px; text-align: center; color:green; font-family:fantasy}
 
 .T{background-color:fuchsia;}
 

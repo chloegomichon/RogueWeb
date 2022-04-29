@@ -7,7 +7,7 @@ class Player:
         self._x = None
         self._y = None
         self.money = 0
-        self.life = 100 #points de vie
+        self.life = 20 #points de vie
         self.compteur = 0 # va servir à perdre de la vie dans les déplacements
         self.weapons = 0
         self.treasure = False

@@ -62,8 +62,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
             let money_tag = document.getElementById("money")
             let life_tag = document.getElementById("life")
             let weapon_tag = document.getElementById("weapons")
-            let treasure = data[i].treasure
+            let treasure = data[1].treasure
             console.log('trésor trouvé')
+
             money_tag.textContent = `Nombre de pièces : ${data[2]}`
             life_tag.textContent = `Points de vie : ${data[3]}`
             weapon_tag.textContent = `Armes : ${data[4]}`
@@ -71,14 +72,16 @@ window.addEventListener("DOMContentLoaded", (event) => {
             if(data[3] == 0){
                 document.getElementById('hideaway').style.display='block'
             }
-            if(treasure==true){
-                document.getElementById('win').style.display='block'}
+
+            if(treasure){
+                document.getElementById('win').style.display='block'
+            }
         }
         
-
         
     });
     
+
     socket.on("response_enemies", function(enemies_data){
         console.log(enemies_data);
         for(let data of enemies_data){
