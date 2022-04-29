@@ -9,20 +9,31 @@ game = Game()
 @app.route("/")
 def index():
     map = game.getMap()
-    game_player = game.getPlayer()
-    return render_template("index.html", mapdata=map, n_row=len(map),n_col=len(map[0]), playerdata = game_player)
+    game_player1 = game.getPlayer1()
+    game_player2 = game.getPlayer2()
+    return render_template("index.html", mapdata=map, n_row=len(map),n_col=len(map[0]), playerdata1 = game_player1,playerdata2 = game_player2)
 
-@socketio.on("move")
-def on_move_msg(json, methods=["GET", "POST"]):
+@socketio.on("move_P1")
+def on_move_msg_P1(json, methods=["GET", "POST"]):
     print("received move ws message")
     dx = json['dx']
     dy = json["dy"]
     
-    data, ret = game.move(dx,dy)
+    data, ret = game.move_P1(dx,dy)
     if ret:
         socketio.emit("response", data)  
     
-    #return render_template("main.js", playerdata = game_player_m)
+
+@socketio.on("move_P2")
+def on_move_msg_P2(json, methods=["GET", "POST"]):
+    print("received move ws message")
+    dx = json['dx']
+    dy = json["dy"]
+    
+    data, ret = game.move_P2(dx,dy)
+    if ret:
+        socketio.emit("response", data)  
+    
 
 @socketio.on("move_enemies")
 def on_move_enemy_msg():
