@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             var span_to_modif = document.getElementById(cell_id);
             var pass_on_cash = data[i].pass_on_cash
             if (pass_on_cash == true){
-                span_to_modif.style.backgroundColor = 'azure';
+                span_to_modif.style.backgroundColor = 'black';
                 }
             span_to_modif.textContent = data[i].content;
         };

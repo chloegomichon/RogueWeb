@@ -1,5 +1,6 @@
 body{
-    background-color:azure;}
+    background-color:black;
+color:white}
       
             
 .thekeypad{
@@ -19,15 +20,15 @@ body{
 
 .console{text-align: center}
 
-#points1{background-color:lemonchiffon; float:left; height:100px; width: 400px; font-size: 20px; font-family: 'Courier New', Courier, monospace;}
-#points2{background-color:rgb(226, 255, 205); float:left; height:100px; width: 400px; font-size: 20px; font-family: 'Courier New', Courier, monospace;}
+#points1{background-color:darkcyan; float:left; height:100px; width: 400px; font-size: 20px; font-family:Verdana, Geneva, Tahoma, sans-serif;}
+#points2{background-color:darkgreen; float:left; height:100px; width: 400px; font-size: 20px; font-family:Verdana, Geneva, Tahoma, sans-serif;}
 
 #game{height:15%; font-family:fantasy; font-size:80px; text-align: center; color:goldenrod}
 
 .O{background-color:gold;}
 .M{background-color: brown; color:brown}
 
-#hideaway{font-size:80px; text-align: center; background-color: black; color:white;font-family:fantasy}
+#hideaway{font-size:80px; text-align: center; background-color: red; color:white;font-family:fantasy}
 
 #win{font-size:80px; text-align: center; color:green; font-family:fantasy}
 

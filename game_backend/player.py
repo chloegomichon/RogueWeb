@@ -76,7 +76,11 @@ class Player:
             self._y = new_y
 
         elif map[new_y][new_x] == 'Z' : #méchant qui inflige dommages directs, avec une certaine probabilité
-            prob = random.randint(0,2)
+            if self.weapons == 0:
+                prob = random.randint(0,2)
+            else:
+                prob = 0
+                self.weapons -=1
             if prob != 0:
                 self.life -= 2
             ret =True
@@ -96,7 +100,11 @@ class Player:
             self._y = new_y
 
         elif map[new_y][new_x] == 'H' : #méchant qui se met à bouger pendant sur 4 déplacements (à coder)
-            prob = random.randint(0,2)
+            if self.weapons == 0:
+                prob = random.randint(0,2)
+            else:
+                prob = 0
+                self.weapons -=1
             if prob == 0: # je réussis à tuer le méchant
                 self.life -= 1
                 map[new_y][new_x] = self._symbol
