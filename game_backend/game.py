@@ -15,11 +15,8 @@ class Game:
         self._generator.gen_tiles_level()
         self._map = self._generator.tiles_level
 
-        self._player1 = Player()
-        self._player1.initPos( self._map )
-
-        self._player2 = Player()
-        self._player2.initPos( self._map )
+        self._player = Player()
+        self._player.initPos( self._map )
 
         self.enemies=[]
 
@@ -45,11 +42,8 @@ class Game:
     def getMap(self):
         return self._map
 
-    def move_P1(self, dx, dy):
-        return self._player1.move(dx, dy, self._map)
-    
-    def move_P2(self, dx, dy):
-        return self._player2.move(dx, dy, self._map)
+    def move(self, dx, dy):
+        return self._player.move(dx, dy, self._map)
 
     def move_enemies(self):
         all_enemies_data = []
@@ -58,8 +52,5 @@ class Game:
             all_enemies_data.append(data)
         return all_enemies_data, True 
 
-    def getPlayer1(self):
-        return self._player1
-
-    def getPlayer2(self):
-        return self._player2
+    def getPlayer(self):
+        return self._player
