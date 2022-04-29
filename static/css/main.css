@@ -19,8 +19,9 @@ body{
 
 .console{text-align: center}
 
-.points{background-color:lemonchiffon; float:left; height:100px; width: 400px; font-size: 20px; font-family: 'Courier New', Courier, monospace;}
 
+#points1{background-color:lemonchiffon; float:left; height:100px; width: 400px; font-size: 20px; font-family: 'Courier New', Courier, monospace;}
+#points2{background-color:rgb(218, 255, 205); float:left; height:100px; width: 400px; font-size: 20px; font-family: 'Courier New', Courier, monospace;}
 #game{height:15%; font-family:fantasy; font-size:80px; text-align: center; color:goldenrod}
 
 .O{background-color:gold;}
@@ -32,3 +33,4 @@ body{
 
 .T{background-color:fuchsia;}
 
+.Player{font-weight: bold; text-align: center;}
