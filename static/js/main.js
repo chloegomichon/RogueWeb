@@ -55,8 +55,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 span_to_modif.style.backgroundColor = 'black';
                 }
             span_to_modif.textContent = data[i].content;
-        };
+        };})
 
+    socket.on("responseP1", function(data){
         if (data !== []){
             let money_tag = document.getElementById("money");
             let life_tag = document.getElementById("life");
@@ -75,12 +76,33 @@ window.addEventListener("DOMContentLoaded", (event) => {
             if(treasure){
                 document.getElementById('win').style.display='block'
             }
+        }  
+    })
+    socket.on("responseP2", function(data){
+        //console.log(data);
+       
+        if (data !== []){
+            let money_tag = document.getElementById("money2");
+            let life_tag = document.getElementById("life2");
+            let weapon_tag = document.getElementById("weapons2");
+            let treasure = data[1].treasure;
+            console.log('trésor trouvé');
+
+            money_tag.textContent = `Nombre de pièces : ${data[2]}`;
+            life_tag.textContent = `Points de vie : ${data[3]}`;
+            weapon_tag.textContent = `Armes : ${data[4]}`;
+
+            if(data[3] == 0){
+                document.getElementById('hideaway2').style.display='block'
+            }
+
+            if(treasure){
+                document.getElementById('win2').style.display='block'
+            }
         }
         
         
     });
-
-    
 
     socket.on("response_enemies", function(enemies_data){
         console.log(enemies_data);

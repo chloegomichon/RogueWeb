@@ -28,9 +28,9 @@ color:white}
 .O{background-color:gold;}
 .M{background-color: brown; color:brown}
 
-#hideaway{font-size:80px; text-align: center; background-color: red; color:white;font-family:fantasy}
+.hideaway{font-size:80px; text-align: center; background-color: red; color:white;font-family:fantasy}
 
-#win{font-size:80px; text-align: center; color:green; font-family:fantasy}
+.win{font-size:80px; text-align: center; color:green; font-family:fantasy}
 
 .T{background-color:fuchsia;}
 

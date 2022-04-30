@@ -10,7 +10,8 @@ game = Game()
 def index():
     map = game.getMap()
     game_player = game.getPlayer()
-    return render_template("index.html", mapdata=map, n_row=len(map),n_col=len(map[0]), playerdata = game_player)
+    game_player2 = game.getPlayer2()
+    return render_template("index.html", mapdata=map, n_row=len(map),n_col=len(map[0]), playerdata = game_player,playerdata2 = game_player2)
 
 @socketio.on("move")
 def on_move_msg(json, methods=["GET", "POST"]):
@@ -20,7 +21,8 @@ def on_move_msg(json, methods=["GET", "POST"]):
     
     data, ret = game.move(dx,dy)
     if ret:
-        socketio.emit("response", data)  
+        socketio.emit("response", data) 
+        socketio.emit("responseP1", data) 
     
     #return render_template("main.js", playerdata = game_player_m)
 @socketio.on("move2")
@@ -32,6 +34,7 @@ def on_move_msg(json, methods=["GET", "POST"]):
     data, ret = game.move2(dx,dy)
     if ret:
         socketio.emit("response", data)  
+        socketio.emit("responseP2", data) 
     
     #return render_template("main.js", playerdata = game_player_m)
 
