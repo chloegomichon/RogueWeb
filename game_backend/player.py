@@ -32,9 +32,28 @@ class Player:
         _map[self._y][self._x] = self._symbol
 
     def attacked(self, map):
-        if map[self._y][self._x]=='H' or map[self._y][self._x]=='K' or map[self._y][self._x]=='Z':
-            self.life -= 1
-            data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{self._y}", "j":f"{self._x}", "content":self._symbol, "pass_on_cash": False,"treasure":self.treasure},self.money,self.life, self.weapons]
+        if map[self._y][self._x]=='Z':
+            if self.weapons == 0:
+                prob = random.randint(0,2)
+            else:
+                prob = 1
+                self.weapons -=1
+            if prob == 0: # je réussis à tuer le méchant
+                self.life -= 1
+            
+        elif map[self._y][self._x]=='K':
+            self.money -= 1
+
+        elif map[self._y][self._x]=='H':
+            if self.weapons == 0:
+                prob = random.randint(0,2)
+            else:
+                prob = 1
+                self.weapons -=1
+            if prob == 0: # je réussis à tuer le méchant
+                self.life -= 1
+
+        data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{self._y}", "j":f"{self._x}", "content":self._symbol, "pass_on_cash": False,"treasure":self.treasure},self.money,self.life, self.weapons]
         return data
 
     def move(self, dx, dy, map):
@@ -105,14 +124,22 @@ class Player:
             self._x = new_x
             self._y = new_y
 
-        elif map[new_y][new_x] == 'H' : #méchant qui se met à bouger pendant sur 4 déplacements (à coder)
+        elif map[new_y][new_x] == 'H' : #méchant qui peut te faire gagner des vies 
             if self.weapons == 0:
                 prob = random.randint(0,2)
             else:
-                prob = 0
+                prob = random.randint(1,2)
                 self.weapons -=1
-            if prob == 0: # je réussis à tuer le méchant
+            if prob == 0: # le méchant m'attaque
                 self.life -= 1
+                map[new_y][new_x] = self._symbol
+                map[self._y][self._x] = "x"
+                data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol, "pass_on_cash": False,"treasure":self.treasure}, self.money, self.life,self.weapons]
+                self._x = new_x
+                self._y = new_y
+                ret =True
+            elif prob == 2: #je tue les mechant et gagne des vies 
+                self.life += 1
                 map[new_y][new_x] = self._symbol
                 map[self._y][self._x] = "x"
                 data = [{"i": f"{self._y}", "j":f"{self._x}", "content":"x"}, {"i": f"{new_y}", "j":f"{new_x}", "content":self._symbol, "pass_on_cash": False,"treasure":self.treasure}, self.money, self.life,self.weapons]
