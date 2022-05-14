@@ -3,7 +3,7 @@ import random
 class Weapon:
 
     def __init__(self):
-        self.symbol = '\u2694\uFE0F'
+        self.symbol = 'W'
         self.x = None
         self.y = None
 

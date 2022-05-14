@@ -2,7 +2,7 @@
 import random
 
 class Player:
-    def __init__(self, symbol="\U0001f920"):
+    def __init__(self, symbol="P"):
         self._symbol = symbol
         self._x = None
         self._y = None
@@ -59,7 +59,7 @@ class Player:
     def move(self, dx, dy, map):
         self.compteur = (self.compteur + 1)%5
         if self.compteur == 0 :
-            self.life = self.life - 1 # perte d'un point de vie tous les trois déplacements
+            self.life = self.life - 1 # perte d'un point de vie tous les 5 déplacements
  
         if self.life <= 0 or self.treasure == True:
             # arrêt du joueur si plus de points de vie ou si trésor trouvé
@@ -73,7 +73,7 @@ class Player:
             new_y = self._y + dy    
 
 
-        if map[new_y][new_x] == "." or map[new_y][new_x] == "x" or map[new_y][new_x] == "\U0001f920":
+        if map[new_y][new_x] == "." or map[new_y][new_x] == "x" or map[new_y][new_x] == "P":
             ret =True
             map[new_y][new_x] = self._symbol
             map[self._y][self._x] = "x"
@@ -91,7 +91,7 @@ class Player:
             self._x = new_x
             self._y = new_y
 
-        elif map[new_y][new_x] == "\u2694\uFE0F" :
+        elif map[new_y][new_x] == "W" :
             ret =True
             self.weapons = self.weapons + 1 
             map[new_y][new_x] = self._symbol

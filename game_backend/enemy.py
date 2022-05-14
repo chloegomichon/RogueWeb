@@ -2,7 +2,7 @@
 import random
 from symtable import Symbol
 
-enemies = ['Z', '\u2694\uFE0F']
+enemies = ['Z', 'W']
 
 class Enemy:
     def __init__(self, symbol):
