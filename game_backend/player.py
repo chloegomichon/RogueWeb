@@ -2,7 +2,7 @@
 import random
 
 class Player:
-    def __init__(self, symbol="P"):
+    def __init__(self, symbol="\U0001f920"):
         self._symbol = symbol
         self._x = None
         self._y = None
@@ -73,7 +73,7 @@ class Player:
             new_y = self._y + dy    
 
 
-        if map[new_y][new_x] == "." or map[new_y][new_x] == "x" or map[new_y][new_x] == "P":
+        if map[new_y][new_x] == "." or map[new_y][new_x] == "x" or map[new_y][new_x] == "\U0001f920":
             ret =True
             map[new_y][new_x] = self._symbol
             map[self._y][self._x] = "x"
@@ -91,7 +91,7 @@ class Player:
             self._x = new_x
             self._y = new_y
 
-        elif map[new_y][new_x] == "W" :
+        elif map[new_y][new_x] == "\u2694\uFE0F" :
             ret =True
             self.weapons = self.weapons + 1 
             map[new_y][new_x] = self._symbol
